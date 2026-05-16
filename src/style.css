@@ -121,3 +121,81 @@ body {
 .rejected {
   background: #dc2626;
 }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 14px;
+  background: white;
+}
+
+.table th {
+  background: #18233a;
+  color: white;
+  padding: 16px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.table td {
+  padding: 16px;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+}
+
+.table tr:hover {
+  background: #f8fafc;
+}
+
+.status-select {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: white;
+  min-width: 140px;
+}
+
+.note-cell {
+  max-width: 220px;
+  word-break: break-word;
+  color: #475569;
+}
+
+.date-cell {
+  min-width: 170px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.action-group {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.edit-btn {
+  background: #f59e0b;
+  color: white;
+}
+
+.edit-btn:hover {
+  background: #d97706;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}

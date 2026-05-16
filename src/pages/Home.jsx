@@ -508,6 +508,8 @@ function handleEdit(item) {
                 <th>Phone</th>
                 <th>Position</th>
                 <th>Status</th>
+                <th>note</th>
+                <th>created_at</th>
                 <th>Action</th>
               </tr>
 
@@ -515,75 +517,98 @@ function handleEdit(item) {
 
             <tbody>
 
-              {paginatedApplicants.map((item) => (
+  {paginatedApplicants.map((item) => (
 
-                <tr key={item.id}>
+    <tr key={item.id}>
 
-                  <td>{item.name}</td>
-                  <td>{item.email}</td>
-                  <td>{item.phone}</td>
-                  <td>{item.position}</td>
+      <td>{item.name}</td>
 
-                  <td>
+      <td>{item.email}</td>
 
-                    <select
-                      className='select'
-                      value={item.status}
-                      onChange={(e) =>
-                        handleStatusChange(
-                          item.id,
-                          e.target.value
-                        )
-                      }
-                    >
+      <td>{item.phone}</td>
 
-                      <option value='Applied'>
-                        Applied
-                      </option>
+      <td>{item.position}</td>
 
-                      <option value='Interview'>
-                        Interview
-                      </option>
+      {/* STATUS */}
+      <td>
 
-                      <option value='Passed'>
-                        Passed
-                      </option>
+        <select
+          className='status-select'
+          value={item.status}
+          onChange={(e) =>
+            handleStatusChange(
+              item.id,
+              e.target.value
+            )
+          }
+        >
 
-                      <option value='Rejected'>
-                        Rejected
-                      </option>
+          <option value='Applied'>
+            Applied
+          </option>
 
-                    </select>
+          <option value='Interview'>
+            Interview
+          </option>
 
-                  </td>
+          <option value='Passed'>
+            Passed
+          </option>
 
-                  <td>
+          <option value='Rejected'>
+            Rejected
+          </option>
 
-                    <button
-                      className='button edit-btn'
-                      onClick={() =>
-                        handleEdit(item)
-                      }
-                    >
-                      Edit
-                    </button>
+        </select>
 
-                    <button
-                      className='button delete-btn'
-                      onClick={() =>
-                        handleDelete(item.id)
-                      }
-                    >
-                      Delete
-                    </button>
+      </td>
 
-                  </td>
+      {/* NOTE */}
+      <td className='note-cell'>
+        {item.note}
+      </td>
 
-                </tr>
+      {/* DATE */}
+      <td className='date-cell'>
 
-              ))}
+        {new Date(
+          item.created_at
+        ).toLocaleString()}
 
-            </tbody>
+      </td>
+
+      {/* ACTION */}
+      <td>
+
+        <div className='action-group'>
+
+          <button
+            className='button edit-btn'
+            onClick={() =>
+              handleEdit(item)
+            }
+          >
+            Edit
+          </button>
+
+          <button
+            className='button delete-btn'
+            onClick={() =>
+              handleDelete(item.id)
+            }
+          >
+            Delete
+          </button>
+
+        </div>
+
+      </td>
+
+    </tr>
+
+  ))}
+
+</tbody>
 
           </table>
 
