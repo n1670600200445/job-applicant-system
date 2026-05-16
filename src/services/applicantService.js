@@ -1,5 +1,5 @@
 const API_URL =
-  'https://script.google.com/macros/s/AKfycbyK7jOW4JfAWWJaEIUdDrRUzIpemZDHN7Z6e97pbSg04qYXuELWGJ_eK2HCx2qv4Yg7w/exec';
+  'https://script.google.com/macros/s/AKfycbyK7jOW4JfAWWJaElUdDrRUzlpemZDHN7Z6e97pbSg04qYXuELWGJ_-eK2HCx2qv4Yg7w/exec';
 
 export async function getApplicants() {
 
