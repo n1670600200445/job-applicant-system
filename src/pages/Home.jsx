@@ -39,8 +39,6 @@ export default function Home() {
     useState(1);
 
   const itemsPerPage = 5;
-  const [apiLoading, setApiLoading] =
-    useState(false);
 
   const [form, setForm] = useState({
     name: '',
@@ -196,85 +194,82 @@ export default function Home() {
     });
   }
 
- async function handleSubmit(e) {
+  async function handleSubmit(e) {
 
-  e.preventDefault();
+    e.preventDefault();
 
-  setApiLoading(true);
+    if (!validateForm()) {
+      return;
+    }
 
-  let result;
+    let result;
 
-  if (editingId) {
+    if (editingId) {
 
-    result =
-      await updateApplicant({
-        id: editingId,
-        ...form
+      result =
+        await updateApplicant({
+          id: editingId,
+          ...form
+        });
+
+    } else {
+
+      result =
+        await createApplicant(form);
+    }
+
+    if (result.success) {
+
+      alert(
+        editingId
+          ? 'Update success'
+          : 'Create success'
+      );
+
+      setForm({
+        name: '',
+        email: '',
+        phone: '',
+        position: '',
+        note: ''
       });
 
-  } else {
+      setEditingId(null);
 
-    result =
-      await createApplicant(form);
+      loadApplicants();
+
+    } else {
+
+      alert(result.message);
+    }
   }
-
-  setApiLoading(false);
-
-  if (result.success) {
-
-    alert(
-      editingId
-        ? 'Update success'
-        : 'Create success'
-    );
-
-    setForm({
-      name: '',
-      email: '',
-      phone: '',
-      position: '',
-      note: ''
-    });
-
-    setEditingId(null);
-
-    loadApplicants();
-
-  } else {
-
-    alert(result.message);
-  }
-}
 
   async function handleDelete(id) {
 
-  const confirmDelete =
-    window.confirm(
-      'Confirm delete?'
-    );
+    const confirmDelete =
+      window.confirm(
+        'Confirm delete?'
+      );
 
-  if (!confirmDelete) {
-    return;
+    if (!confirmDelete) {
+      return;
+    }
+
+    const result =
+      await deleteApplicant(id);
+
+    if (result.success) {
+
+      alert('Delete success');
+
+      loadApplicants();
+
+    } else {
+
+      alert(result.message);
+    }
   }
 
-  setApiLoading(true);
-
-  const result =
-    await deleteApplicant(id);
-
-  setApiLoading(false);
-
-  if (result.success) {
-
-    alert('Delete success');
-
-    loadApplicants();
-
-  } else {
-
-    alert(result.message);
-  }
-}
   function handleEdit(item) {
 
     setEditingId(item.id);
@@ -289,29 +284,28 @@ export default function Home() {
   }
 
   async function handleStatusChange(
-  id,
-  status
-) {
+    id,
+    status
+  ) {
 
-  setApiLoading(true);
+    const result =
+      await updateStatus(
+        id,
+        status
+      );
 
-  const result =
-    await updateStatus(
-      id,
-      status
-    );
+    if (result.success) {
 
-  setApiLoading(false);
+      alert('Status updated');
 
-  if (result.success) {
+      loadApplicants();
 
-    loadApplicants();
+    } else {
 
-  } else {
-
-    alert(result.message);
+      alert(result.message);
+    }
   }
-}
+
   return (
 
     <div className='container'>
