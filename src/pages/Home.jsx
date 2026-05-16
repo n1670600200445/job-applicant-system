@@ -154,7 +154,7 @@ export default function Home() {
       }
     }
 
-    if (!form.phone.trim()) {
+    if (!String(form.phone).trim()) {
 
       newErrors.phone =
         'Phone is required';
@@ -165,7 +165,9 @@ export default function Home() {
         /^[0-9]+$/;
 
       if (
-        !phoneRegex.test(form.phone)
+        !phoneRegex.test(
+  String(form.phone)
+)
       ) {
 
         newErrors.phone =
@@ -196,18 +198,19 @@ export default function Home() {
 
   async function handleSubmit(e) {
 
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!validateForm()) {
-      return;
-    }
+  if (!validateForm()) {
+    return;
+  }
+
+  try {
 
     let result;
 
     if (editingId) {
 
       result =
-      console.log(editingId);
         await updateApplicant({
           id: editingId,
           ...form
@@ -219,7 +222,9 @@ export default function Home() {
         await createApplicant(form);
     }
 
-    if (result.success) {
+    console.log(result);
+
+    if (result && result.success) {
 
       alert(
         editingId
@@ -241,10 +246,21 @@ export default function Home() {
 
     } else {
 
-      alert(result.message);
+      alert(
+        result?.message ||
+        'Update failed'
+      );
     }
-  }
 
+  } catch (error) {
+
+    console.error(error);
+
+    alert(
+      'Server error'
+    );
+  }
+}
   async function handleDelete(id) {
 
     const confirmDelete =
