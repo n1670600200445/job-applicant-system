@@ -1,3 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --navy: #0d1b2a;
+  --navy-mid: #1a2d45;
+  --navy-light: #243b55;
+  --accent: #3ecfcf;
+  --accent-glow: rgba(62, 207, 207, 0.18);
+  --accent-2: #f7c948;
+  --surface: #ffffff;
+  --surface-2: #f4f8fb;
+  --border: #e2eaf3;
+  --text: #0d1b2a;
+  --text-muted: #6b7c93;
+  --red: #ef4444;
+  --amber: #f59e0b;
+  --green: #10b981;
+  --blue: #3b82f6;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 1px 4px rgba(13,27,42,0.07);
+  --shadow-md: 0 4px 20px rgba(13,27,42,0.10);
+  --shadow-lg: 0 12px 40px rgba(13,27,42,0.13);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,242 +31,19 @@
 }
 
 body {
-
-  font-family:
-    Arial,
-    sans-serif;
-
-  background: #f4f7fb;
-
-  color: #333;
+  font-family: 'Sora', sans-serif;
+  background: var(--surface-2);
+  color: var(--text);
+  min-height: 100vh;
 }
 
-.container {
-
-  max-width: 1200px;
-
-  margin: auto;
-
-  padding: 30px;
+p {
+  color: var(--text-muted);
+  font-size: 14px;
 }
 
-.title {
-
-  font-size: 36px;
-
-  font-weight: bold;
-
-  margin-bottom: 30px;
-
-  color: #1e293b;
-}
-
-.card {
-
-  background: white;
-
-  padding: 25px;
-
-  border-radius: 12px;
-
-  box-shadow:
-    0 4px 10px
-    rgba(0, 0, 0, 0.1);
-
-  margin-bottom: 30px;
-}
-
-.input,
-.select,
-.textarea {
-
-  width: 100%;
-
-  padding: 12px;
-
-  border:
-    1px solid #ccc;
-
-  border-radius: 8px;
-
-  font-size: 16px;
-
-  margin-top: 5px;
-}
-
-.textarea {
-
-  min-height: 100px;
-
-  resize: vertical;
-}
-
-.button {
-
-  padding:
-    10px 20px;
-
+hr {
   border: none;
-
-  border-radius: 8px;
-
-  cursor: pointer;
-
-  font-size: 14px;
-
-  transition: 0.3s;
-
-  margin-right: 10px;
-}
-
-.button:hover {
-
-  opacity: 0.85;
-}
-
-.save-btn {
-
-  background: #2563eb;
-
-  color: white;
-}
-
-.edit-btn {
-
-  background: #f59e0b;
-
-  color: white;
-}
-
-.delete-btn {
-
-  background: #ef4444;
-
-  color: white;
-}
-
-.table {
-
-  width: 100%;
-
-  border-collapse: collapse;
-
-  background: white;
-
-  border-radius: 12px;
-
-  overflow: hidden;
-
-  box-shadow:
-    0 4px 10px
-    rgba(0, 0, 0, 0.1);
-}
-
-.table th {
-
-  background: #1e293b;
-
-  color: white;
-
-  padding: 15px;
-
-  text-align: left;
-}
-
-.table td {
-
-  padding: 15px;
-
-  border-bottom:
-    1px solid #ddd;
-}
-
-.table tr:hover {
-
-  background: #f9fafb;
-}
-
-.error {
-
-  color: red;
-
-  font-size: 14px;
-
-  margin-top: 5px;
-}
-
-.pagination {
-
-  margin-top: 20px;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-}
-
-.status-badge {
-
-  padding:
-    6px 10px;
-
-  border-radius: 20px;
-
-  color: white;
-
-  font-size: 13px;
-
-  font-weight: bold;
-
-  display: inline-block;
-}
-
-.status-applied {
-
-  background: #3b82f6;
-}
-
-.status-interview {
-
-  background: #f59e0b;
-}
-
-.status-passed {
-
-  background: #10b981;
-}
-
-.status-rejected {
-
-  background: #ef4444;
-}
-
-@media (
-  max-width: 768px
-) {
-
-  .container {
-
-    padding: 15px;
-  }
-
-  .table {
-
-    display: block;
-
-    overflow-x: auto;
-  }
-
-  .title {
-
-    font-size: 28px;
-  }
-
-  .button {
-
-    width: 100%;
-
-    margin-bottom: 10px;
-  }
+  border-top: 1.5px solid var(--border);
+  margin: 10px 0 28px;
 }
