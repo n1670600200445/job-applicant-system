@@ -272,7 +272,7 @@ export default function Home() {
 
   function handleEdit(item) {
 
-    setEditingId(item.ID);
+    setEditingId(item.id);
 
     setForm({
       name: item.name,
@@ -495,7 +495,7 @@ export default function Home() {
 
               {paginatedApplicants.map((item) => (
 
-                <tr key={item.ID}>
+                <tr key={item.id}>
 
                   <td>{item.name}</td>
                   <td>{item.email}</td>
@@ -509,7 +509,7 @@ export default function Home() {
                       value={item.status}
                       onChange={(e) =>
                         handleStatusChange(
-                          item.ID,
+                          item.id,
                           e.target.value
                         )
                       }
@@ -549,7 +549,7 @@ export default function Home() {
                     <button
                       className='button delete-btn'
                       onClick={() =>
-                        handleDelete(item.ID)
+                        handleDelete(item.id)
                       }
                     >
                       Delete
