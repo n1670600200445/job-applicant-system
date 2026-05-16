@@ -207,6 +207,7 @@ export default function Home() {
     if (editingId) {
 
       result =
+      console.log(editingId);
         await updateApplicant({
           id: editingId,
           ...form
@@ -270,18 +271,23 @@ export default function Home() {
     }
   }
 
-  function handleEdit(item) {
+function handleEdit(item) {
 
-    setEditingId(item.id);
+  setEditingId(item.id);
 
-    setForm({
-      name: item.name,
-      email: item.email,
-      phone: item.phone,
-      position: item.position,
-      note: item.note || ''
-    });
-  }
+  setForm({
+    name: item.name,
+    email: item.email,
+    phone: item.phone,
+    position: item.position,
+    note: item.note || ''
+  });
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
 
   async function handleStatusChange(
     id,
