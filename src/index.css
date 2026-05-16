@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  background: #f4f7fb;
+
+  color: #333;
+}
+
+.container {
+
+  max-width: 1200px;
+
+  margin: auto;
+
+  padding: 30px;
+}
+
+.title {
+
+  font-size: 36px;
+
+  font-weight: bold;
+
+  margin-bottom: 30px;
+
+  color: #1e293b;
+}
+
+.card {
+
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 10px
+    rgba(0, 0, 0, 0.1);
+
+  margin-bottom: 30px;
+}
+
+.input,
+.select,
+.textarea {
+
+  width: 100%;
+
+  padding: 12px;
+
+  border:
+    1px solid #ccc;
+
+  border-radius: 8px;
+
+  font-size: 16px;
+
+  margin-top: 5px;
+}
+
+.textarea {
+
+  min-height: 100px;
+
+  resize: vertical;
+}
+
+.button {
+
+  padding:
+    10px 20px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  transition: 0.3s;
+
+  margin-right: 10px;
+}
+
+.button:hover {
+
+  opacity: 0.85;
+}
+
+.save-btn {
+
+  background: #2563eb;
+
+  color: white;
+}
+
+.edit-btn {
+
+  background: #f59e0b;
+
+  color: white;
+}
+
+.delete-btn {
+
+  background: #ef4444;
+
+  color: white;
+}
+
+.table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background: white;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 4px 10px
+    rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+
+  background: #1e293b;
+
+  color: white;
+
+  padding: 15px;
+
+  text-align: left;
+}
+
+.table td {
+
+  padding: 15px;
+
+  border-bottom:
+    1px solid #ddd;
+}
+
+.table tr:hover {
+
+  background: #f9fafb;
+}
+
+.error {
+
+  color: red;
+
+  font-size: 14px;
+
+  margin-top: 5px;
+}
+
+.pagination {
+
+  margin-top: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.status-badge {
+
+  padding:
+    6px 10px;
+
+  border-radius: 20px;
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  display: inline-block;
+}
+
+.status-applied {
+
+  background: #3b82f6;
+}
+
+.status-interview {
+
+  background: #f59e0b;
+}
+
+.status-passed {
+
+  background: #10b981;
+}
+
+.status-rejected {
+
+  background: #ef4444;
+}
+
+@media (
+  max-width: 768px
+) {
+
+  .container {
+
+    padding: 15px;
+  }
+
+  .table {
+
+    display: block;
+
+    overflow-x: auto;
+  }
+
+  .title {
+
+    font-size: 28px;
+  }
+
+  .button {
+
+    width: 100%;
+
+    margin-bottom: 10px;
+  }
+}
